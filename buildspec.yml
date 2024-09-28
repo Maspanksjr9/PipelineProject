@@ -1,0 +1,34 @@
+version: 0.2
+
+env:
+  variables:
+    # Define the SNYK_TOKEN variable, which you can securely set in the CodeBuild environment
+    SNYK_TOKEN: "0a2a8b23-dc18-43e3-be71-f1aa61b7f2d2"
+
+phases:
+  install:
+    commands:
+      - echo "Installing necessary tools..."
+      - npm install -g snyk
+      - echo "Snyk installation complete."
+
+  pre_build:
+    commands:
+      - echo "Authenticating with Snyk..."
+      - snyk auth $SNYK_TOKEN
+      - echo "Snyk authentication complete."
+
+  build:
+    commands:
+      - echo "Running Snyk vulnerability test..."
+      - snyk test
+      # Optionally, you can monitor the project in the Snyk dashboard
+      - snyk monitor
+      - echo "Snyk test and monitor completed."
+
+artifacts:
+  # You can specify what files to store as build artifacts
+  files:
+    - '**/*'
+  discard-paths: yes
+
