@@ -8,17 +8,17 @@ files:
 
 hooks:
   BeforeInstall:
-    - location: scripts/before_install.sh  # Remove 'my-app/'
+    - location: before_install.sh  # Remove 'my-app/'
       timeout: 300
       runas: ec2-user
 
   AfterInstall:
-    - location: scripts/install_dependencies.sh  # Remove 'my-app/'
+    - location: install_dependencies.sh  # Remove 'my-app/'
       timeout: 300
       runas: ec2-user
 
   ApplicationStart:
-    - location: scripts/start_application.sh  # Remove 'my-app/'
+    - location: start_application.sh  # Remove 'my-app/'
       timeout: 300
       runas: ec2-user
 
