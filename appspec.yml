@@ -3,22 +3,22 @@ os: linux
 files:
   - source: /
     destination: /home/ec2-user/my-app
-  - source: scripts/          # Include the scripts directory
+  - source: scripts/
     destination: /home/ec2-user/my-app/scripts/  # Ensure it copies to the correct location
 
 hooks:
   BeforeInstall:
-    - location: scripts/before_install.sh
+    - location: my-app/scripts/before_install.sh  # Include full path relative to the destination
       timeout: 300
       runas: ec2-user
 
   AfterInstall:
-    - location: scripts/install_dependencies.sh
+    - location: my-app/scripts/install_dependencies.sh  # Include full path relative to the destination
       timeout: 300
       runas: ec2-user
 
   ApplicationStart:
-    - location: scripts/start_application.sh
+    - location: my-app/scripts/start_application.sh  # Include full path relative to the destination
       timeout: 300
       runas: ec2-user
 
