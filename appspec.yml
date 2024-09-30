@@ -3,6 +3,9 @@ os: linux
 files:
   - source: /
     destination: /home/ec2-user/my-app
+  - source: scripts/          # Include the scripts directory
+    destination: /home/ec2-user/my-app/scripts/  # Ensure it copies to the correct location
+
 hooks:
   BeforeInstall:
     - location: scripts/before_install.sh
@@ -18,4 +21,5 @@ hooks:
     - location: scripts/start_application.sh
       timeout: 300
       runas: ec2-user
+
 
