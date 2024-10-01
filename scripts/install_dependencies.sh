@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Navigate to the app directory
-cd /home/ec2-user/my-app
+cd /home/ec2-user/my-app/scripts
 
 # Update the package lists
 echo "Updating package lists..."
