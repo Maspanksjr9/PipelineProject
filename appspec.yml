@@ -10,19 +10,20 @@ files:
 
 hooks:
   BeforeInstall:
-    - location: before_install.sh  # Remove 'my-app/'
+    - location: before_install.sh  # Ensure this script is at the root of the deployment package
       timeout: 300
-      runas: ec2-user
+      runas: root
 
   AfterInstall:
-    - location: install_dependencies.sh  # Remove 'my-app/'
+    - location: install_dependencies.sh  # Ensure this script is at the root of the deployment package
       timeout: 300
-      runas: ec2-user
+      runas: root
 
   ApplicationStart:
-    - location: start_application.sh  # Remove 'my-app/'
+    - location: start_application.sh  # Ensure this script is at the root of the deployment package
       timeout: 300
-      runas: ec2-user
+      runas: root
+
 
 
 
