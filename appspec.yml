@@ -10,17 +10,17 @@ files:
 
 hooks:
   BeforeInstall:
-    - location: before_install.sh  # Ensure this script is at the root of the deployment package
+    - location: scripts/before_install.sh  # Ensure this script is at the root of the deployment package
       timeout: 300
       runas: root
 
   AfterInstall:
-    - location: install_dependencies.sh  # Ensure this script is at the root of the deployment package
+    - location: scripts/install_dependencies.sh  # Ensure this script is at the root of the deployment package
       timeout: 300
       runas: root
 
   ApplicationStart:
-    - location: start_application.sh  # Ensure this script is at the root of the deployment package
+    - location: scripts/start_application.sh  # Ensure this script is at the root of the deployment package
       timeout: 300
       runas: root
 
