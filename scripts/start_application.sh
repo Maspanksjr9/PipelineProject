@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Navigate to the app directory
-cd /home/ec2-user/my-app
+cd /home/ec2-user/my-app/scripts
 
 # Ensure the application is not already running
 echo "Stopping any existing Node.js application..."
